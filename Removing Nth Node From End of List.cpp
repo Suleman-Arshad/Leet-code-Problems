@@ -37,6 +37,7 @@ public:
             nnode->next = NULL;
         }
     }
+//RNNFL means Removing Nth Node from last of List
     void RNNFL(int n)
     {
         if (!head)
