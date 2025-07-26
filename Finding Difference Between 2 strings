@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+char findTheDifference(string s, string t)
+{
+    for (int i = 0; i < t.size(); i++)
+    {
+        bool found = false;
+        for (int j = 0; j < s.size(); j++)
+        {
+            if (t[i] == s[j])
+            {
+                s[j] = '*'; // mark as used
+                found = true;
+                break;
+            }
+        }
+        if (!found)
+        {
+            return t[i]; // this character is extra
+        }
+    }
+    return '\0';
+}
+int main()
+{
+    string s1, s2;
+    cout << "Enter First String : ";
+    cin >> s1;
+    cout << "Enter Second String : ";
+    cin >> s2;
+    cout <<"The Difference between 2 String is of Character : "<<findTheDifference(s1, s2) << endl;
+    return 0;
+}        
