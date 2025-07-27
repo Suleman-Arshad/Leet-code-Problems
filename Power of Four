@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+bool isPowerOfFour(int n)
+{
+    if (n == 0)
+    {
+        return false;
+    }
+    while (n % 4 == 0)
+    {
+        n /= 4;
+    }
+    return n == 1;
+}
+int main()
+{
+    int n;
+    cout << "Enter Number : ";
+    cin >> n;
+    if (isPowerOfFour(n))
+    {
+        cout << "Yes, the number " << n << " is a Power of Four.\n";
+    }
+    else
+    {
+        cout << "NO, the number " << n << " is not a Power of Four.\n";
+    }
+    return 0;
+}
