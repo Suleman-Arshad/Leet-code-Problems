@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+int Add_Digits(int num)
+{
+    int sum = 0;
+    while (num != 0)
+    {
+        int temp = num % 10;
+        sum += temp;
+        num /= 10;
+        /* code */
+    }
+    if (sum >= -9 && sum <= 9)
+    {
+        return sum;
+        /* code */
+    }
+    return Add_Digits(sum);
+}
+int main()
+{
+    int n;
+    cout << "Enter number : ";
+    cin >> n;
+    cout << "Output : " << Add_Digits(38) << endl;
+    return 0;
+}
