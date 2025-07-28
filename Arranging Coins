@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int arrangeCoins(int n) {
+        int capacity=1;
+        int rows=0;
+        while(capacity<=n){
+            int negc=capacity;
+            n-=negc;
+            capacity++;
+            rows++;
+        }
+        return rows;
+    }
+};
