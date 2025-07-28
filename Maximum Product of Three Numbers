@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int maximumProduct(vector<int>& nums) {
+        // Sort the array
+        for (int i = 0; i < nums.size(); i++) {
+            for (int j = 0; j < nums.size(); j++) {
+                if (nums[i] < nums[j]) {
+                    int temp = nums[j];
+                    nums[j] = nums[i];
+                    nums[i] = temp;
+                }
+            }
+        }
+
+        int n = nums.size();
+
+        // Max product is either:
+        // 1. Product of last three (all positive)
+        // 2. Product of two smallest (most negative) and the largest
+        int product1 = nums[n - 1] * nums[n - 2] * nums[n - 3];
+        int product2 = nums[0] * nums[1] * nums[n - 1];
+
+        return max(product1, product2);
+    }
+};
