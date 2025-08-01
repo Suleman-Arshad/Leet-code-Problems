@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int smallestEvenMultiple(int n) {
+        int i = 2;
+        int c;
+    start:
+        if (i % 2 == 0 && i % n == 0) {
+            c = i;
+        } else {
+            i++;
+            goto start;
+        }
+        return c;
+    }
+};
