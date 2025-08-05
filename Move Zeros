@@ -1,0 +1,16 @@
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int zeroCount = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] == 0) {
+                zeroCount++;
+                nums.erase(nums.begin() + i);
+                i--;  // Adjust index after erase
+            }
+        }
+        while (zeroCount--) {
+            nums.push_back(0);
+        }
+    }
+};
