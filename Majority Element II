@@ -1,0 +1,26 @@
+class Solution {
+public:
+    vector<int> majorityElement(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> arr;
+        if (n == 0 || n == 1) {
+            return nums;
+        }
+
+        for (int i = 0; i < nums.size(); i++) {
+            int count = 1; // Start from 1 because nums[i] counts itself
+            for (int j = i + 1; j < nums.size();) {
+                if (nums[i] == nums[j]) {
+                    count++;
+                    nums.erase(nums.begin() + j); // Remove duplicate, don't increment j
+                } else {
+                    j++; // Only increment when no erase happens
+                }
+            }
+            if (count > n / 3) {
+                arr.push_back(nums[i]);
+            }
+        }
+        return arr;
+    }
+};
