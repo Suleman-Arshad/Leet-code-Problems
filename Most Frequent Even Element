@@ -1,0 +1,47 @@
+class Solution {
+public:
+    int mostFrequentEven(vector<int>& nums) {
+        vector<int> arr;
+
+        for (int i = 0; i < nums.size(); i++) {
+            int count = 1;  // start from 1 (count itself)
+            for (int j = i + 1; j < nums.size(); j++) {
+                if (nums[i] == nums[j]) {
+                    count++;
+                }
+            }
+            if (count > 1 || (count == 1)) {
+                arr.push_back(nums[i]);
+            }
+        }
+
+        // Remove odd numbers safely
+        for (int i = arr.size() - 1; i >= 0; i--) {
+            if (arr[i] % 2 != 0) {
+                arr.erase(arr.begin() + i);
+            }
+        }
+
+        if (arr.size() == 0) {
+            return -1;
+        }
+
+        // Count frequency of each even number
+        int maxFreq = 0;
+        int ans = 1e9;
+        for (int i = 0; i < arr.size(); i++) {
+            int freq = 1;
+            for (int j = i + 1; j < arr.size(); j++) {
+                if (arr[i] == arr[j]) {
+                    freq++;
+                }
+            }
+            if (freq > maxFreq || (freq == maxFreq && arr[i] < ans)) {
+                maxFreq = freq;
+                ans = arr[i];
+            }
+        }
+
+        return ans;
+    }
+};
