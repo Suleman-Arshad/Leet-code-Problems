@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool isSameAfterReversals(int num) {
+        int n = num;
+        int reverse1 = 0;
+        while (n != 0) {
+            int temp = n % 10;
+            reverse1 = (reverse1 * 10) + temp;
+            n /= 10;
+        }
+        int reverse2 = 0;
+        while (reverse1 != 0) {
+            int temp = reverse1 % 10;
+            reverse2 = (reverse2 * 10) + temp;
+            reverse1 /= 10;
+        }
+        if (reverse2 == num) {
+            return true;
+        }
+        return false;
+    }
+};
